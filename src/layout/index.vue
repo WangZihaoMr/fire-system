@@ -28,5 +28,14 @@ import AppAside from './aside'
     height: 50px;
     padding: 0;
   }
+  .el-main {
+    padding: 0;
+  }
+}
+
+// 去除浏览器滚动条
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
 }
 </style>
