@@ -14,7 +14,7 @@
           <el-input v-model="loginForm.userName" />
         </el-form-item>
         <el-form-item prop="userPwd">
-          <el-input v-model="loginForm.userPwd" />
+          <el-input v-model="loginForm.userPwd" show-password />
         </el-form-item>
         <el-form-item>
           <el-button
