@@ -69,6 +69,7 @@ const handleLoginOut = () => {
   cursor: pointer;
   display: flex;
   align-items: center;
+  height: 20px;
   color: #409eff;
 }
 </style>
