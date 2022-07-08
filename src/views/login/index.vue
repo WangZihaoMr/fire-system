@@ -72,7 +72,7 @@ const handleLoginSumbit = () => {
     if (!valid) return
     const response = store.dispatch('user/login', loginForm)
     if (response) {
-      router.push('/layout')
+      router.push('/')
     }
   })
 }

@@ -12,7 +12,7 @@ service.interceptors.request.use(
   function (config) {
     // 通过请求头发送token
     const userInfo = store.getters.userInfo.token
-    if (userInfo) config.headers.Authorization = 'Bearer ' + userInfo.token
+    userInfo ? config.headers.Authorization = 'Bearer ' + userInfo.token : ''
     return config
   },
   function (error) {
