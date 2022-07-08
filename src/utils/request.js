@@ -1,5 +1,6 @@
 import axios from 'axios'
 import store from '../store'
+import loading from '../utils/loading'
 
 // 创建axios实例
 const service = axios.create({
@@ -10,12 +11,14 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use(
   function (config) {
+    loading.open()
     // 通过请求头发送token
     const userInfo = store.getters.userInfo.token
     if (userInfo) config.headers.Authorization = 'Bearer ' + userInfo.token
     return config
   },
   function (error) {
+    loading.close()
     return Promise.reject(error)
   }
 )
@@ -23,6 +26,7 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   function (response) {
+    loading.close()
     // 全局数据处理
     const { data } = response.data
 
@@ -32,6 +36,7 @@ service.interceptors.response.use(
     return data
   },
   function (error) {
+    loading.close()
     return Promise.reject(error)
   }
 )

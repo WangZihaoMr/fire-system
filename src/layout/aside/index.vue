@@ -17,6 +17,7 @@
 .app-aside-wrapper {
   width: 200px;
   height: 100%;
+  overflow-y: auto;
   background-color: #001529;
   .logo-wrapper {
     display: flex;
