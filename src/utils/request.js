@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '../store'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -7,6 +8,8 @@ const service = axios.create({
 
 service.interceptors.request.use(
   function (config) {
+    const token = store.getters.token
+    if (token) config.headers.Authorization = 'Bearer ' + token
     return config
   },
   function (error) {
