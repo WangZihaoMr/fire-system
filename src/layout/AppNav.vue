@@ -2,18 +2,21 @@
   <div class="app-nav-wrapper">
     <div class="nav-left">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>promotion list</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="nav-right">
       <el-dropdown @command="handleCommandOptions">
-        <span class="el-dropdown-link"> admin </span>
+        <span class="el-dropdown-link">
+          {{ userInfo.userName }}
+        </span>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item command="email"
-              >邮箱： admin@imooc.com</el-dropdown-item
-            >
+              >邮箱：
+              {{ userInfo.userEmail }}
+            </el-dropdown-item>
             <el-dropdown-item command="logOut">退出</el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -23,8 +26,8 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useStore } from 'vuex'
-
 const store = useStore()
 
 // 退出登录
@@ -39,6 +42,11 @@ const handleCommandOptions = (command) => {
       break
   }
 }
+
+// 用户邮箱 && 用户名
+const userInfo = computed(() => {
+  return store.getters.userInfo
+})
 
 // 跳转邮箱
 const handleToEmail = () => {}
