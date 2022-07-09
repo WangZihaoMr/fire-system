@@ -11,13 +11,18 @@
         status-icon
       >
         <el-form-item prop="userName">
-          <el-input v-model="loginForm.userName" placeholder="请输入用户名" />
+          <el-input
+            v-model="loginForm.userName"
+            :prefix-icon="User"
+            placeholder="请输入用户名"
+          />
         </el-form-item>
         <el-form-item prop="userPwd">
           <el-input
             v-model="loginForm.userPwd"
             type="password"
             placeholder="请输入密码"
+            :prefix-icon="View"
           />
         </el-form-item>
         <el-form-item>
@@ -37,7 +42,7 @@
 import { reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-
+import { User, View } from '@element-plus/icons-vue'
 // store,router实例
 const store = useStore()
 const router = useRouter()
