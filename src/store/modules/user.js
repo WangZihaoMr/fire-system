@@ -1,13 +1,14 @@
 import router from '../../router'
-import { getItem, setItem } from '@/utils/storage'
 import UserApi from '../../api/user'
+import { getItem, setItem } from '@/utils/storage'
 
 const SET_USER_INFO_KEY = 'userInfo'
 
 export default {
   namespaced: true,
   state: {
-    userInfo: getItem(SET_USER_INFO_KEY) || {}
+    userInfo: getItem(SET_USER_INFO_KEY) || {},
+    menus: ''
   },
   mutations: {
     // 存储userInfo到vuex和本地
@@ -15,6 +16,10 @@ export default {
       console.log(userInfo)
       state.userInfo = userInfo
       setItem(SET_USER_INFO_KEY, userInfo)
+    },
+    // menus页面权限
+    SET_ROUTES(state, menus) {
+      state.menus = menus
     }
   },
   actions: {
@@ -31,8 +36,14 @@ export default {
     },
     // 退出登录
     loginOut({ commit }) {
-      commit('SET_USER_INFO', {})
       router.push('/login')
+      commit('SET_USER_INFO', {})
+    },
+    // 页面权限
+    async getMenus({ commit }) {
+      const response = await UserApi.getPermission()
+      commit('SET_ROUTES', response)
+      return response
     }
   }
 }

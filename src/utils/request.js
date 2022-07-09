@@ -13,8 +13,8 @@ service.interceptors.request.use(
   function (config) {
     loading.open()
     // 通过请求头发送token
-    const userInfo = store.getters.userInfo.token
-    userInfo ? config.headers.Authorization = 'Bearer ' + userInfo.token : ''
+    const token = store.getters.userInfo.token
+    token ? config.headers.Authorization = 'Bearer ' + token : ''
     return config
   },
   function (error) {

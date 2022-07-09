@@ -4,7 +4,7 @@ import request from '../utils/request'
  * 用户登录接口
  */
 const login = (data) => {
-  return request({ url: 'users/login', method: 'POST', data })
+  return request({ url: '/users/login', method: 'POST', data })
 }
 
 /**

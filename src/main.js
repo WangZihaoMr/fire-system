@@ -14,7 +14,7 @@ import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 // 页面鉴权
-// import './permission'
+import './permission'
 
 const app = createApp(App)
 

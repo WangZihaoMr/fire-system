@@ -11,10 +11,14 @@
         status-icon
       >
         <el-form-item prop="userName">
-          <el-input v-model="loginForm.userName" />
+          <el-input v-model="loginForm.userName" placeholder="请输入用户名" />
         </el-form-item>
         <el-form-item prop="userPwd">
-          <el-input v-model="loginForm.userPwd" show-password />
+          <el-input
+            v-model="loginForm.userPwd"
+            type="password"
+            placeholder="请输入密码"
+          />
         </el-form-item>
         <el-form-item>
           <el-button
@@ -70,10 +74,10 @@ const loginFormRules = reactive({
 const handleLoginSumbit = () => {
   loginFormRef.value.validate(async (valid) => {
     if (!valid) return
-    const response = store.dispatch('user/login', loginForm)
-    if (response) {
-      router.push('/')
-    }
+    const response = await store.dispatch('user/login', loginForm)
+    // console.log(response, '我是登录页')
+    if (!response.token) return
+    router.push('/')
   })
 }
 </script>
