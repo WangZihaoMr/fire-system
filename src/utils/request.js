@@ -31,7 +31,7 @@ service.interceptors.response.use(
     const { data } = response.data
 
     // token过期处理
-    if (response.code === 401) store.dispatch('user/loginOut')
+    if (response.code === 50001) store.dispatch('user/loginOut')
 
     return data
   },
