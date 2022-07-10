@@ -1,10 +1,7 @@
 <template>
   <div class="app-nav-wrapper">
     <div class="nav-left">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-      </el-breadcrumb>
+      <bread-crumb></bread-crumb>
     </div>
     <div class="nav-right">
       <el-dropdown @command="handleCommandOptions">
@@ -28,6 +25,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+import BreadCrumb from '../components/BreadCrumb'
 const store = useStore()
 
 // 退出登录

@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-container">菜单</div>
+  <div class="menu-container">菜单管理</div>
 </template>
 
 <script setup></script>

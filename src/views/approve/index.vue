@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-container">菜单</div>
+  <div class="dept-container">待审批</div>
 </template>
 
 <script setup></script>
