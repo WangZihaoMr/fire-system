@@ -43,6 +43,7 @@ import { reactive, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { User, View } from '@element-plus/icons-vue'
+import { ElNotification } from 'element-plus'
 // store,router实例
 const store = useStore()
 const router = useRouter()
@@ -82,6 +83,12 @@ const handleLoginSumbit = () => {
     const response = await store.dispatch('user/login', loginForm)
     // console.log(response, '我是登录页')
     if (!response.token) return
+    ElNotification({
+      title: '消息提示',
+      message: '登录成功',
+      type: 'success',
+      duration: 3000
+    })
     router.push('/')
   })
 }

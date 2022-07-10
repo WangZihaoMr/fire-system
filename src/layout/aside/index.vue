@@ -28,13 +28,13 @@
         <el-menu-item index="/system/dept">部门管理</el-menu-item>
       </el-sub-menu>
 
-      <el-sub-menu index="1">
+      <el-sub-menu index="/audit">
         <template #title>
-          <el-icon><Document /></el-icon>
+          <el-icon><Promotion /></el-icon>
           <span>审批管理</span>
         </template>
-        <el-menu-item index="1-2">休假申请</el-menu-item>
-        <el-menu-item index="1-3">待审批</el-menu-item>
+        <el-menu-item index="/audit/leave">休假申请</el-menu-item>
+        <el-menu-item index="/audit/approve">待审批</el-menu-item>
       </el-sub-menu>
 
       <!-- <el-menu-item index="2">
@@ -45,9 +45,7 @@
   </div>
 </template>
 
-<script setup>
-import { Document, Setting } from '@element-plus/icons-vue'
-</script>
+<script setup></script>
 
 <style scoped lang="scss">
 .app-aside-wrapper {

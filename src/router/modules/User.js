@@ -1,10 +1,8 @@
 import Layout from '../../layout'
-import user from '../../views/user'
 
 export default {
   path: '/system',
-  name: 'system',
-  redirect: '/system/user',
+  name: 'user-query',
   component: Layout,
   meta: {
     icon: 'Setting',
@@ -14,7 +12,7 @@ export default {
     {
       path: '/system/user',
       name: 'user',
-      component: user,
+      component: () => import('../../views/user'),
       meta: {
         title: '用户管理'
       }
